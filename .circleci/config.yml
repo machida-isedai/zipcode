@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "40:fd:de:3f:0d:31:ae:56:68:40:77:86:53:37:ed:80"
       - checkout
       - run: bundle install
       - run: bundle exec ruby scripts/update_data.rb
